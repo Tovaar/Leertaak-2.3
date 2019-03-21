@@ -1,0 +1,26 @@
+@font-face {
+  font-family: MuseoSans;
+  src: url(museosans.ttf);
+}
+
+html {
+  font-family: MuseoSans, sans-serif !important;
+  background-color: #fcf9f9;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: #40403F;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+  color: #070707;
+}
+
+main {
+    background-image: url("img/footer-bg.png");
+    background-color: #fcf9f9;
+}
+
+.col-md-6 p a{
+    color: grey;
+}
