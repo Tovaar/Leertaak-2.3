@@ -1,0 +1,18 @@
+CREATE TABLE `users` (
+  `idUsers` int(11) NOT NULL AUTO_INCREMENT,
+  
+`usernameUsers` varchar(30) NOT NULL,
+  
+`emailUsers` varchar(100) NOT NULL,
+  
+`firstNameUsers` varchar(30) NOT NULL,
+  
+`lastNameUsers` varchar(50) NOT NULL,
+  
+`passwordUsers` varchar(200) NOT NULL,
+ 
+`rankUsers` int(2) NOT NULL DEFAULT '1',
+  
+PRIMARY KEY (`idUsers`),
+  
+UNIQUE KEY `idUsers` (`idUsers`))
