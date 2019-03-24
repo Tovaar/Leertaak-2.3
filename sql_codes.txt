@@ -12,6 +12,10 @@ CREATE TABLE `users` (
 `passwordUsers` varchar(200) NOT NULL,
  
 `rankUsers` int(2) NOT NULL DEFAULT '1',
+
+`verificatieCode` int(6),
+
+`active` int(2) NOT NULL DEFAULT '0',
   
 PRIMARY KEY (`idUsers`),
   

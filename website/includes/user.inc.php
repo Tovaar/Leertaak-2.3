@@ -55,7 +55,7 @@ class User extends Dbc {
   public function insertNewUser($username, $mail, $firstName, $lastName, $pwd, $rankUser, $verificatieCode) {
     $hashedpwd = password_hash($pwd, PASSWORD_DEFAULT);
   //  $hashedcode = password_hash($verificatieCode, PASSWORD_DEFAULT);
-    $stmt = $this->connect()->prepare("INSERT INTO users (usernameUsers,emailUsers, firstNameUsers, lastNameUsers,  passwordUsers, rankUsers, verificatie) VALUES (?, ?, ?, ?, ?, ?, ?)");
+    $stmt = $this->connect()->prepare("INSERT INTO users (usernameUsers,emailUsers, firstNameUsers, lastNameUsers,  passwordUsers, rankUsers, verificatieCode) VALUES (?, ?, ?, ?, ?, ?, ?)");
     $stmt->execute([$username, $mail, $firstName, $lastName, $hashedpwd, $rankUser, $verificatieCode]);
   }
 

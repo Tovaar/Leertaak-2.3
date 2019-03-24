@@ -1,26 +1,25 @@
 <?php
-if (isset($_POST['verify'])){
 
+if (!isset($_post['verify'])){
+  session_start();
   require 'dbc.inc.php';
   require 'user.inc.php';
 
   $username = $_SESSION['username'];
-  $active = $_SESSION['active'];
-  $id = $_SESSION['id'];
-  $verifycode = $_POST['verifyCode'];
-  $verificatieCode = $_POST['code'];
+  $query = "SELECT * FROM users WHERE usernameUSERS = '$username'";
+  $result = mysqli_query($db, $query) or die(mysqli_error($db));
+  while($row = mysqli_fetch_row($result)){
+    $verificatieCode = $row[7];
+    $verifycode = $_POST['verifyCode'];
+    if($verifycode == $verificatieCode){
+      $query2="UPDATE users SET active = 1 WHERE usernameUSERS = '$username'";
+      mysqli_query($db, $query2) or die(mysqli_error($db));
+      header("Location: ../index.php?verify=succes");
 
-
-
-  if($verifycode == $verificatieCode){
-    $object = new User;
-    $object->set_active($username);
-    header("Location: ../index.php?verify=succes");
-    exit();
-  }
-  else {
-    header("Location: ../verify.php?error=invalidecode=".$username);
-    exit();
+    }
+    else {
+      header("Location: ../verify.php?error=invalidecode=".$username);
+    }
   }
 
 

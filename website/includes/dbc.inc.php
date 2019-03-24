@@ -1,6 +1,6 @@
 
 <?php
-
+$db = mysqli_connect ("localhost", "root", "", "ahliweatherdb") or die (mysqli_error());
 class Dbc{
 
   private $servername;

@@ -12,7 +12,7 @@ if (isset($_POST['signup-submit'])) {
   $pwdRepeat = $_POST["pwd-repeat"];
   $rankUser= $_POST["rankUser"];
   $verificatieCode = rand(100000,999999);
-  $filename = "../data/email.txt";
+  $filename = '../data/'.$mail.'.txt';
   $msg = '
 
   Thanks for signing up!

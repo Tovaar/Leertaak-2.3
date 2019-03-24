@@ -1,9 +1,6 @@
 <?php
   require "header.php";
 
-  if (isset($_SESSION['rankUser']) && ($_SESSION['rankUser'] == 2)) {
-
-
     ?>
     <main>
         <div class="container" style="padding-top:50px">
@@ -169,7 +166,9 @@
 
                             <select name="rankUser" class="form-control mr-sm-2" aria-label="rankUser">
                                 <option value="1">User</option>
+                                <?php if (isset($_SESSION['rankUser']) && ($_SESSION['rankUser'] == 2)) {?>
                                 <option value="2">Admin</option>
+                              <?php } ?>
                             </select>
                         </div>
                         <div class="col-md-12 text-center">
@@ -180,24 +179,3 @@
             </div>
         </div>
     </main>
-
-
-
-<?php
-}else {
-  ?>
-  <br>
-  <div class="row">
-      <div class="col-md-2">
-      </div>
-      <div class="col-md-8">
-          <div class="alert alert-danger" role="alert">
-              Please login before accessing this page.
-          </div>
-      </div>
-      <div class="col-md-2">
-      </div>
-  </div>
-  <?php
-}  
-?>

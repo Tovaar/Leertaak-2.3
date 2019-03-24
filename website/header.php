@@ -21,19 +21,16 @@
             <li class="nav-item">
               <a class="nav-link" href="index.php">Home</a>
             </li>
-
-
+            <li class="nav-item">
+              <a class="nav-link" href="register_user.php">Registreren</a>
+            </li>
         </ul>
         <?php
         if (isset($_SESSION['userid'])) {
           ?>
           <form class="form-inline" action="includes/logout.inc.php" method="post">
               <?php
-              echo "Welcome"." ".$_SESSION["username"];
-              if (isset($_SESSION['rankUser']) && ($_SESSION['rankUser'] == 2)){
-              ?>
-              <a class="btn btn-primary my-3 my-sm-0 ml-2" href="register_user.php" role="button">Register User</a>
-            <?php } ?>
+              echo "Welcome"." ".$_SESSION["username"]; ?>
               <button type="submit" class="btn btn-danger my-3 my-sm-0 ml-2" name="logout-submit">Logout</button>
           </form>
           <?php
@@ -44,7 +41,7 @@
               <div class="input-group-prepend">
                 <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
               </div>
-              <input type="text" class="form-control mr-sm-2" name="username" placeholder="Username/E-Mail" aria-label="username" aria-describedby="username">
+              <input type="text" class="form-control mr-sm-2" name="username" placeholder="Username" aria-label="username" aria-describedby="username">
             </div>
             <div class="input-group">
               <div class="input-group-prepend">
@@ -52,7 +49,6 @@
               </div>
               <input type="password" class="form-control mr-sm-2" name="password" placeholder="Password" aria-label="password" aria-describedby="password">
             </div>
-            <a class="btn btn-primary my-3 my-sm-0 ml-2" href="register_user.php" role="button">Register User</a>
             <button class="btn btn-dark my-2 my-sm-0" type="submit" name="login-submit">Login</button>
           </form>
           <?php
