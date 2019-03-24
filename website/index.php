@@ -31,6 +31,8 @@
 
       if (isset($_SESSION['rankUser']) && ($_SESSION['rankUser'] == 2)){
         echo "Welcome"." ".$_SESSION["username"];
+        $test = random(1,6);
+        echo $test;
       }?>
       <br>
     </main>

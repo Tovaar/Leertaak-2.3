@@ -53,6 +53,7 @@
               </div>
               <input type="password" class="form-control mr-sm-2" name="password" placeholder="Password" aria-label="password" aria-describedby="password">
             </div>
+            <a class="btn btn-primary my-3 my-sm-0 ml-2" href="register_user.php" role="button">Register User</a>
             <button class="btn btn-dark my-2 my-sm-0" type="submit" name="login-submit">Login</button>
           </form>
           <?php

@@ -11,6 +11,19 @@ if (isset($_POST['signup-submit'])) {
   $pwd = $_POST["pwd"];
   $pwdRepeat = $_POST["pwd-repeat"];
   $rankUser= $_POST["rankUser"];
+  $verificatieCode = rand(100000,999999);
+  $filename = "data/email.txt";
+  $msg = '
+
+  Thanks for signing up!
+  Your account has been created.
+  Currently your account is not activated yet.
+  To activate your account please login to our website and use the following verification code:
+
+  --------------------------------------------
+  Verification code: '.$verificatieCode.'
+  --------------------------------------------
+  ';
 
   if (empty($username) || empty($mail) || empty($firstName) || empty($lastName) || empty($pwd) || empty($pwdRepeat) || empty($rankUser)) {
     header("Location: ../register_user.php?error=emptyfields&user=".$username."&email=".$mail);
@@ -67,8 +80,10 @@ if (isset($_POST['signup-submit'])) {
       exit();
     }
     else {
-      $object->insertNewUser($username, $mail, $firstName, $lastName, $pwd, $rankUser);
+      $object->insertNewUser($username, $mail, $firstName, $lastName, $pwd, $rankUser, $verificatieCode);
+      file_put_contents($filename, $msg);
       header("Location: ../register_user.php?signup=success");
+
     }
   }
 
