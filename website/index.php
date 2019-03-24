@@ -29,10 +29,9 @@
       <br>
       <?php
 
-      if (isset($_SESSION['rankUser']) && ($_SESSION['rankUser'] == 2)){
+      if (isset($_SESSION['rankUser']) && ($_SESSION['rankUser'] == 2) && ($_SESSION['active'] == 1)){
         echo "Welcome"." ".$_SESSION["username"];
-        $test = random(1,6);
-        echo $test;
+
       }?>
       <br>
     </main>

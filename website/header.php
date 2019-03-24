@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="styles/master.css">
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/bootstrap.bundle.js"></script>
-    <title>Jordan Bank weather system</title>
+    <title>OnzeB</title>
   </head>
   <body>
 
@@ -34,7 +34,6 @@
               ?>
               <a class="btn btn-primary my-3 my-sm-0 ml-2" href="register_user.php" role="button">Register User</a>
             <?php } ?>
-              <a class="btn btn-danger my-3 my-sm-0 ml-2" href='change_password.php' role='button'>Change Password</a>
               <button type="submit" class="btn btn-danger my-3 my-sm-0 ml-2" name="logout-submit">Logout</button>
           </form>
           <?php

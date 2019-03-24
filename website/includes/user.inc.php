@@ -36,6 +36,23 @@ class User extends Dbc {
     }
   }
 
+  public function getActiveUsername($username){
+    $usernameprepared = $username;
+
+    $stmt = $this->connect()->prepare("SELECT active, usernameUsers FROM users WHERE usernameUsers=?");
+    $stmt->execute([$username]);
+    $data = $stmt->fetch(PDO::FETCH_OBJ);
+    if(is_object($data)){
+      session_start();
+      $_SESSION['active'] = $data->active;
+      $_SESSION['username'] = $data->usernameUsers;
+      $_SESSION['id'] = $data->idUsers;
+    }
+  }
+  public function updateActive(){
+
+  }
+
   public function insertNewUser($username, $mail, $firstName, $lastName, $pwd, $rankUser, $verificatieCode) {
     $hashedpwd = password_hash($pwd, PASSWORD_DEFAULT);
   //  $hashedcode = password_hash($verificatieCode, PASSWORD_DEFAULT);
@@ -55,6 +72,7 @@ class User extends Dbc {
           $_SESSION['userid'] = $data->idUsers;
           $_SESSION['username'] = $data->usernameUsers;
           $_SESSION['rankUser'] = $data->rankUsers;
+          $_SESSION['active'] = $data->active;
           header("Location: ../index.php?login=succes");
           exit();
         }
@@ -67,10 +85,17 @@ class User extends Dbc {
         exit();
       }
     }
+
       catch(PDOException $e) {
       echo '{"error":{"text":'. $e->getMessage() .'}}';
     }
   }
+
+public function set_active($id){
+  $idprepared = $id;
+  $stmt = $this->connect()->prepare("UPDATE users SET active =? WHERE idUsers =?");
+  $stmt->execute([1,$id]);
+}
 
   public function updateUsername($username, $id){
        $usernameprepared = $username;
