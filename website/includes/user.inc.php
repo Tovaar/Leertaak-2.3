@@ -39,24 +39,23 @@ class User extends Dbc {
   public function getActiveUsername($username){
     $usernameprepared = $username;
 
-    $stmt = $this->connect()->prepare("SELECT active, usernameUsers FROM users WHERE usernameUsers=?");
+    $stmt = $this->connect()->prepare("SELECT * FROM users WHERE usernameUsers=?");
     $stmt->execute([$username]);
     $data = $stmt->fetch(PDO::FETCH_OBJ);
     if(is_object($data)){
       session_start();
       $_SESSION['active'] = $data->active;
+      $_SESSION['code'] = $data->verificatie;
       $_SESSION['username'] = $data->usernameUsers;
       $_SESSION['id'] = $data->idUsers;
-    }
-  }
-  public function updateActive(){
 
+    }
   }
 
   public function insertNewUser($username, $mail, $firstName, $lastName, $pwd, $rankUser, $verificatieCode) {
     $hashedpwd = password_hash($pwd, PASSWORD_DEFAULT);
   //  $hashedcode = password_hash($verificatieCode, PASSWORD_DEFAULT);
-    $stmt = $this->connect()->prepare("INSERT INTO users (usernameUsers,emailUsers, firstNameUsers, lastNameUsers,  passwordUsers, rankUsers, verificatieCode) VALUES (?, ?, ?, ?, ?, ?, ?)");
+    $stmt = $this->connect()->prepare("INSERT INTO users (usernameUsers,emailUsers, firstNameUsers, lastNameUsers,  passwordUsers, rankUsers, verificatie) VALUES (?, ?, ?, ?, ?, ?, ?)");
     $stmt->execute([$username, $mail, $firstName, $lastName, $hashedpwd, $rankUser, $verificatieCode]);
   }
 
@@ -91,10 +90,10 @@ class User extends Dbc {
     }
   }
 
-public function set_active($id){
-  $idprepared = $id;
-  $stmt = $this->connect()->prepare("UPDATE users SET active =? WHERE idUsers =?");
-  $stmt->execute([1,$id]);
+public function set_active($username){
+  $idprepared = $username;
+  $stmt = $this->connect()->prepare("UPDATE users SET active =1 WHERE usernameUsers =?");
+  $stmt->execute([$username]);
 }
 
   public function updateUsername($username, $id){

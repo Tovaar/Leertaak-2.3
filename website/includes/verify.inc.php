@@ -1,23 +1,26 @@
 <?php
-if (isset($post['verify'])){
+if (isset($_POST['verify'])){
+
   require 'dbc.inc.php';
   require 'user.inc.php';
 
   $username = $_SESSION['username'];
   $active = $_SESSION['active'];
   $id = $_SESSION['id'];
-  $verifycode = $post['verifyCode'];
-  $verificatieCode = $_SESSION['verificatieCode'];
+  $verifycode = $_POST['verifyCode'];
+  $verificatieCode = $_POST['code'];
 
-echo $username;
-  if($verifycode !== $verificatieCode){
-    header("Location: ../verify.php?error=invalidecode=".$username);
+
+
+  if($verifycode == $verificatieCode){
+    $object = new User;
+    $object->set_active($username);
+    header("Location: ../index.php?verify=succes");
+    exit();
   }
   else {
-    $object = new User;
-    $object->set_active($id);
-    header("Location: ../index.php?verify=succes");
-
+    header("Location: ../verify.php?error=invalidecode=".$username);
+    exit();
   }
 
 
