@@ -24,6 +24,9 @@
             <li class="nav-item">
               <a class="nav-link" href="register_user.php">Registreren</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.php">Contact</a>
+            </li>
         </ul>
         <?php
         if (isset($_SESSION['userid'])) {
