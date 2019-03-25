@@ -1,11 +1,13 @@
 
 
+  Dear henk koe,
+
   Thanks for signing up!
-  Your account has been created.
+  Your account has been created on 25.03.2019 13:56.
   Currently your account is not activated yet.
   To activate your account please login to our website and use the following verification code:
 
   --------------------------------------------
-  Verification code: 595404
+  Verification code: 418029
   --------------------------------------------
   

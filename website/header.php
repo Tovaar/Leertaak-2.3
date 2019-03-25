@@ -22,7 +22,7 @@
               <a class="nav-link" href="index.php">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="register_user.php">Registreren</a>
+              <a class="nav-link" href="register_user.php">Register</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="contact.php">Contact</a>

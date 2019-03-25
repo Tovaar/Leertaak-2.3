@@ -15,8 +15,10 @@ if (isset($_POST['signup-submit'])) {
   $filename = '../data/'.$mail.'.txt';
   $msg = '
 
+  Dear '.$firstName. ' '. $lastName. ',
+
   Thanks for signing up!
-  Your account has been created.
+  Your account has been created on '.date("d.m.Y"). ' '. date("H:i").'.
   Currently your account is not activated yet.
   To activate your account please login to our website and use the following verification code:
 

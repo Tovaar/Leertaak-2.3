@@ -1,0 +1,11 @@
+
+
+  Thanks for signing up!
+  Your account has been created.
+  Currently your account is not activated yet.
+  To activate your account please login to our website and use the following verification code:
+
+  --------------------------------------------
+  Verification code: 471640
+  --------------------------------------------
+  
